@@ -2,15 +2,7 @@
 
 A pattern-matching library for JS.
 
-An example using ES6 destructuring:
-
-``` javascript
-cases(on({ foo: Number, bar: Number }, function({ foo, bar }) { return foo + bar }),
-      on([String, String, String]), function([a, b, c]) { return a + b + c })
- .match(f())
-```
-
-Same example in ES3:
+A simple example:
 
 ``` javascript
 cases(on({ foo: Number, bar: Number }, function(o) { return o.foo + o.bar }),
@@ -18,7 +10,15 @@ cases(on({ foo: Number, bar: Number }, function(o) { return o.foo + o.bar }),
  .match(f())
 ```
 
-Same example using arrow syntax, which makes me go "squee!":
+The same example, using ES6 destructuring:
+
+``` javascript
+cases(on({ foo: Number, bar: Number }, function({ foo, bar }) { return foo + bar }),
+      on([String, String, String]), function([a, b, c]) { return a + b + c })
+ .match(f())
+```
+
+Same example again, using arrow syntax (which makes me go "squee!"):
 
 ``` javascript
 cases(on({ foo: Number, bar: Number }, ({ foo, bar }) => foo + bar),
