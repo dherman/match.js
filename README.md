@@ -55,9 +55,13 @@ A `Pattern<a>` is a Pattern object whose `match` method returns values of type `
 
 A `pattern<a>` is pattern syntax value that produces a `Pattern<a>`.
 
-* `on(patt [, action])` : `(pattern<a>[, (a) -> b]) -> Pattern<b>`
+## on(patt [, action])
 
-* `cases(patt, ...)` : `(Pattern<a>, ...) -> Pattern<a>`
+**Type:** `(pattern<a>[, (a) -> b]) -> Pattern<b>`
 
-* `Pattern.prototype.match(x)`
+## cases(patt, ...)
+
+**Type:** `(Pattern<a>, ...) -> Pattern<a>`
+
+## Pattern.prototype.match(x)
 
