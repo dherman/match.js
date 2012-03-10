@@ -6,7 +6,7 @@ An example using ES6 destructuring:
 
 ``` javascript
 cases(on({ foo: Number, bar: Number }, function({ foo, bar }) { return foo + bar }),
-      on([ String, String, String]), function([a, b, c]) { return a + b + c })
+      on([String, String, String]), function([a, b, c]) { return a + b + c })
  .match(f())
 ```
 
@@ -14,7 +14,15 @@ Same example in ES3:
 
 ``` javascript
 cases(on({ foo: Number, bar: Number }, function(o) { return o.foo + o.bar }),
-      on([ String, String, String]), function(a) { return a[0] + a[1] + a[2] })
+      on([String, String, String]), function(a) { return a[0] + a[1] + a[2] })
+ .match(f())
+```
+
+Same example using arrow syntax, which makes me go "squee!":
+
+``` javascript
+cases(on({ foo: Number, bar: Number }, ({ foo, bar }) => foo + bar),
+      on([String, String, String]), ([a, b, c]) => a + b + c)
  .match(f())
 ```
 
