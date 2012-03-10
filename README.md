@@ -32,12 +32,11 @@ pattern ::=                              match condition                        
                                            x !== null                           
 | the Function function                  typeof x === "function"                x
 | the Array function                     x.[[Class]] === "Array"                x
-| NaN                                    SameValue(x, NaN)                      NaN
-| -0                                     SameValue(x, -0)                       -0
 | null                                   x === null                             null
 | undefined                              x === void 0                           undefined
 | boolean                                x === b                                b
-| number                                 x === n                                n
+| NaN                                    isNaN(x)                               NaN
+| number other than NaN                  x === n                                n
 | string                                 x === s                                s
 | Date                                   x.[[Class]] === "Date" &&              d
                                            +x === +d                            
@@ -52,9 +51,13 @@ pattern ::=                              match condition                        
 
 # Pattern objects
 
-* `on(p :: pattern [, action :: Function]) :: Pattern`
+A `Pattern<a>` is a Pattern object whose `match` method returns values of type `a` on successful matches.
 
-* `cases(p :: Pattern, ...) :: Pattern`
+A `pattern<a>` is pattern syntax value that produces a `Pattern<a>`.
+
+* `on(patt [, action])` : `(pattern<a>[, (a) -> b]) -> Pattern<b>`
+
+* `cases(patt, ...)` : `(Pattern<a>, ...) -> Pattern<a>`
 
 * `Pattern.prototype.match(x)`
 
