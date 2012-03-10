@@ -18,7 +18,7 @@ cases(on({ foo: Number, bar: Number }, function({ foo, bar }) { return foo + bar
  .match(f())
 ```
 
-Same example again, using arrow syntax (which makes me go "squee!"):
+Same example again, using [arrow syntax](https://gist.github.com/2011902) (which makes me go "squee!"):
 
 ``` javascript
 cases(on({ foo: Number, bar: Number }, ({ foo, bar }) => foo + bar),
@@ -31,8 +31,7 @@ cases(on({ foo: Number, bar: Number }, ({ foo, bar }) => foo + bar),
 ```
 pattern ::=                              match condition                        match result
                                          -----------------------------------    --------------------
-  the Any function                       true                                   x
-| the Boolean function                   typeof x === "boolean"                 x
+  the Boolean function                   typeof x === "boolean"                 x
 | the Number function                    typeof x === "number"                  x
 | the String function                    typeof x === "string"                  x
 | the Date function                      x.[[Class]] === "Date"                 x
@@ -40,6 +39,7 @@ pattern ::=                              match condition                        
                                            x !== null                           
 | the Function function                  typeof x === "function"                x
 | the Array function                     x.[[Class]] === "Array"                x
+| function                               f(x)                                   x
 | null                                   x === null                             null
 | undefined                              x === void 0                           undefined
 | boolean                                x === b                                b
@@ -71,5 +71,21 @@ A `pattern<a>` is pattern syntax value that produces a `Pattern<a>`.
 
 **Type:** `(Pattern<a>, ...) -> Pattern<a>`
 
+## instance(ctor)
+
+**Type:** `(Function) -> (any) -> boolean`
+
+Returns a predicate that checks for instances of `ctor`.
+
 ## Pattern.prototype.match(x)
+
+**Type:** `(this: Pattern<a>, any) -> a`
+
+## Any
+
+**Type:** `Pattern<true>`
+
+## None
+
+**Type:** `Pattern<nothing>`
 
