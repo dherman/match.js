@@ -1,0 +1,15 @@
+{
+  "exports": {
+      "on": "on",
+      "cases": "cases",
+      "Any": "Any",
+      "_": "_",
+      "None": "None",
+      "hasType": "hasType",
+      "hasClass": "hasClass",
+      "equals": "equals",
+      "instance": "instance",
+      "Pattern": "Pattern",
+      "MatchError": "MatchError"
+  }
+}

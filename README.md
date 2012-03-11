@@ -48,7 +48,7 @@ pattern ::=                              match condition                        
 | string                                 x === s                                s
 | Date                                   x.[[Class]] === "Date" &&              d
                                            +x === +d                            
-| regexp                                 r.match(x)                             result of r.match(x)
+| regexp                                 r.exec(x)                              result of r.exec(x)
 | { x1: pattern1, ..., xn: patternn }    typeof x === "object" &&               object w/ each match
                                            for each i, x.xi matches patterni    
 | [ pattern1, ..., patternn ]            typeof x === "object" &&               array w/ each match
@@ -71,12 +71,6 @@ A `pattern<a>` is pattern syntax value that produces a `Pattern<a>`.
 
 **Type:** `(Pattern<a>, ...) -> Pattern<a>`
 
-## instance(ctor)
-
-**Type:** `(Function) -> (any) -> boolean`
-
-Returns a predicate that checks for instances of `ctor`.
-
 ## Pattern.prototype.match(x)
 
 **Type:** `(this: Pattern<a>, any) -> a`
@@ -89,3 +83,22 @@ Returns a predicate that checks for instances of `ctor`.
 
 **Type:** `Pattern<nothing>`
 
+# Predicates
+
+## instance(ctor)
+
+**Type:** `(Function) -> (any) -> boolean`
+
+Returns a predicate that checks for instances of `ctor`.
+
+## hasType(x)
+
+## hasClass(x)
+
+## equals(x)
+
+## License
+
+Copyright © 2012 Dave Herman
+
+Licensed under the [MIT License](http://mit-license.org).
